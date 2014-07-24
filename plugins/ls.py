@@ -27,3 +27,4 @@ class Ls(Plugin):
         if args:
             cmd.extend(shlex.split(args))
         print subprocess.check_output(cmd)
+        return
