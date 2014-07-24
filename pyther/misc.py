@@ -22,7 +22,7 @@ def die(rc, message=None):
 
     if message:
         #log.error(message)
-        print 'message'
+        print message
     sys.exit(rc)
 
 
