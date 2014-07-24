@@ -13,6 +13,7 @@ import sys
 import os
 import pyther.module_loader as module_loader
 import pyther.misc as misc
+from pyther.Pyther import Pyther
 
 
 def get_cli_options():
@@ -89,7 +90,8 @@ def main():
 
     # add default plugin static
     sys.path.insert(0, 'pyther')
-    known_modules = ['plugin']
+    #known_modules = ['plugin']
+    known_modules = []
 
     for plugin in os.listdir(path):
         pname, ext = os.path.splitext(plugin)
@@ -102,7 +104,11 @@ def main():
     # TODO add completion
     # TODO add history
 
-    run_shell(known_modules, path)
+    pyther = Pyther(known_modules, path)
+    pyther.prompt = 'pyther# '
+    pyther.cmdloop('Welcome to PytherShell')
+
+    #run_shell(known_modules, path)
     misc.die(0)
 
 
