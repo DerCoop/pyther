@@ -43,9 +43,11 @@ class Cat(Plugin):
                     # print w/o leading newline
                     sys.stdout.write(line)
                     ln += 1
+            print ''
         except IOError:
             msg = 'Can\'t read file: ' + str(filename) + '\n'
             sys.stderr.write(msg)
+        return
 
     def run(self, args):
         if not args:
@@ -59,4 +61,4 @@ class Cat(Plugin):
 
         for f in arg:
             self.__print_file(f, opt.line_number)
-            return
+        return
